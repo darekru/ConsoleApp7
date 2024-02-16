@@ -49,14 +49,15 @@ public class Biblioteka
 
         if (response != null)
         {
-            if (response.Status)
+            response.Status = !response.Status;
+            /*if (response.Status)
             {
                 response.Status = false;
             }
             else
             {
                 response.Status = true;
-            }
+            }*/
         }
         else
         {
