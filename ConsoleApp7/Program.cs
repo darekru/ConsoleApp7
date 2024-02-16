@@ -21,7 +21,7 @@ while (czyKontynuowac)
     Console.WriteLine("Wybierz dostępną operację:");
     Console.WriteLine("1. Dodaj książkę");
     Console.WriteLine("2. Wyświetl książki");
-    Console.WriteLine("3. Zmień statu z przeczytana na nieprzeczytana i odwrotnie");
+    Console.WriteLine("3. Zmień status z przeczytana na nieprzeczytana i odwrotnie");
     Console.WriteLine("4. Wyjdź z aplikacji");
     Console.WriteLine("Wpisz numer operacji i zatwierdź Enterem:");
 
