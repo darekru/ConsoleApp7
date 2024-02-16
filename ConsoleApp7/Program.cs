@@ -16,11 +16,13 @@ bool czyKontynuowac = true;
 
 while (czyKontynuowac)
 {
+    Console.WriteLine("--------------------------------------------------------------");
     Console.WriteLine("Witaj w systemie zarządzania biblioteką");
     Console.WriteLine("Wybierz dostępną operację:");
     Console.WriteLine("1. Dodaj książkę");
     Console.WriteLine("2. Wyświetl książki");
-    Console.WriteLine("3. Wyjdź z aplikacji");
+    Console.WriteLine("3. Zmień statu z przeczytana na nieprzeczytana i odwrotnie");
+    Console.WriteLine("4. Wyjdź z aplikacji");
     Console.WriteLine("Wpisz numer operacji i zatwierdź Enterem:");
 
     string operacja = Console.ReadLine();
@@ -43,6 +45,13 @@ while (czyKontynuowac)
             biblio.WyswietlKsiazki();
             break;
         case "3":
+            Console.WriteLine("Wpisz numer książki do zmiany statusu i zatwierdź enterem:");
+            string numerKsiazkiText = Console.ReadLine();
+            int numerKsiazki;
+            int.TryParse(numerKsiazkiText, out numerKsiazki);
+            biblio.changeStatus(numerKsiazki);
+            break;
+        case "4":
             czyKontynuowac = false;
             Console.WriteLine("Zamykam aplikację...");
             break;

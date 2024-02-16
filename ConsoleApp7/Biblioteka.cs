@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace ConsoleApp7;
 
 public class Biblioteka
@@ -6,6 +8,8 @@ public class Biblioteka
 
     public void DodajKsiazke(Ksiazka nowaKsiazka)
     {
+        nowaKsiazka.Id = new_id();
+        nowaKsiazka.Status = false;
         ksiazki.Add(nowaKsiazka);
         Console.WriteLine($"Dodano książkę: {nowaKsiazka.Tytul}");
     }
@@ -23,5 +27,44 @@ public class Biblioteka
         {
             ksiazka.WyswietlInformacjeOKsiazce();
         }
+    }
+
+    public int new_id()
+    {   
+        int max_id = 0;
+        foreach (Ksiazka ksiazka in ksiazki)
+        {
+            if (ksiazka.Id > max_id)
+            {
+                max_id = ksiazka.Id;
+            }
+        }
+        return max_id + 1;
+
+    }
+
+    public void changeStatus(int id)
+    {
+        var response = ksiazki.Find(r => r.Id == id);
+
+        if (response != null)
+        {
+            if (response.Status)
+            {
+                response.Status = false;
+            }
+            else
+            {
+                response.Status = true;
+            }
+        }
+        else
+        {
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("Uwaga!!! brak wybranej książki - NIE mogę zmienić statusu");
+            Console.WriteLine("*********************************************************");
+        }
+
+        
     }
 }
